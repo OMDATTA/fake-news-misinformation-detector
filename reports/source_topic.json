@@ -1,0 +1,257 @@
+{
+  "source_markers": [
+    {
+      "marker": "Mentions 'Reuters'",
+      "reliable_pct": 22.834457358779357,
+      "misleading_pct": 1.2802607076350094
+    },
+    {
+      "marker": "Image credit ('Featured image', 'Photo by')",
+      "reliable_pct": 0.0,
+      "misleading_pct": 51.33263500931099
+    },
+    {
+      "marker": "Embedded tweet / handle",
+      "reliable_pct": 1.1001100110011002,
+      "misleading_pct": 27.42667597765363
+    },
+    {
+      "marker": "Contains URL",
+      "reliable_pct": 0.19610656717845698,
+      "misleading_pct": 14.466945996275605
+    },
+    {
+      "marker": "Curly quotes / apostrophes",
+      "reliable_pct": 50.791600899220356,
+      "misleading_pct": 52.804934823091244
+    },
+    {
+      "marker": "Title in ALL CAPS words (3+)",
+      "reliable_pct": 0.1578418711436361,
+      "misleading_pct": 39.44366852886406
+    },
+    {
+      "marker": "Title tag like [VIDEO] / (IMAGES)",
+      "reliable_pct": 0.0,
+      "misleading_pct": 34.26443202979516
+    }
+  ],
+  "marker_only_cv_accuracy": 0.9625896362298576,
+  "subject_crosstab": [
+    {
+      "subject": "Government News",
+      "misleading": 836,
+      "reliable": 0
+    },
+    {
+      "subject": "Middle-east",
+      "misleading": 373,
+      "reliable": 0
+    },
+    {
+      "subject": "News",
+      "misleading": 9049,
+      "reliable": 0
+    },
+    {
+      "subject": "US_News",
+      "misleading": 410,
+      "reliable": 0
+    },
+    {
+      "subject": "left-news",
+      "misleading": 2386,
+      "reliable": 0
+    },
+    {
+      "subject": "politics",
+      "misleading": 4130,
+      "reliable": 0
+    },
+    {
+      "subject": "politicsNews",
+      "misleading": 0,
+      "reliable": 11056
+    },
+    {
+      "subject": "worldnews",
+      "misleading": 0,
+      "reliable": 9851
+    }
+  ],
+  "subject_note": "The `subject` column perfectly separates the classes (each subject appears in only one class), so it is excluded from all models.",
+  "year_counts": [
+    {
+      "year": 2015,
+      "reliable": 0,
+      "misleading": 1535
+    },
+    {
+      "year": 2016,
+      "reliable": 4691,
+      "misleading": 9078
+    },
+    {
+      "year": 2017,
+      "reliable": 16216,
+      "misleading": 6535
+    },
+    {
+      "year": 2018,
+      "reliable": 0,
+      "misleading": 35
+    }
+  ],
+  "topics": [
+    {
+      "topic": 0,
+      "top_words": [
+        "people",
+        "obama",
+        "just",
+        "like",
+        "police",
+        "black",
+        "white",
+        "donald"
+      ],
+      "n": 8575,
+      "misleading_share": 0.928862973760933
+    },
+    {
+      "topic": 1,
+      "top_words": [
+        "korea",
+        "north",
+        "nuclear",
+        "korean",
+        "missile",
+        "south",
+        "sanctions",
+        "pyongyang"
+      ],
+      "n": 1186,
+      "misleading_share": 0.13069139966273188
+    },
+    {
+      "topic": 2,
+      "top_words": [
+        "clinton",
+        "hillary",
+        "sanders",
+        "campaign",
+        "email",
+        "emails",
+        "fbi",
+        "democratic"
+      ],
+      "n": 2820,
+      "misleading_share": 0.7326241134751773
+    },
+    {
+      "topic": 3,
+      "top_words": [
+        "tax",
+        "house",
+        "senate",
+        "republicans",
+        "obamacare",
+        "republican",
+        "healthcare",
+        "legislation"
+      ],
+      "n": 4219,
+      "misleading_share": 0.24626688788812515
+    },
+    {
+      "topic": 4,
+      "top_words": [
+        "russia",
+        "russian",
+        "putin",
+        "intelligence",
+        "comey",
+        "fbi",
+        "flynn",
+        "investigation"
+      ],
+      "n": 3520,
+      "misleading_share": 0.39289772727272726
+    },
+    {
+      "topic": 5,
+      "top_words": [
+        "cruz",
+        "republican",
+        "party",
+        "election",
+        "campaign",
+        "presidential",
+        "vote",
+        "voters"
+      ],
+      "n": 3727,
+      "misleading_share": 0.5605044271532064
+    },
+    {
+      "topic": 6,
+      "top_words": [
+        "court",
+        "supreme",
+        "judge",
+        "justice",
+        "law",
+        "order",
+        "ban",
+        "federal"
+      ],
+      "n": 3910,
+      "misleading_share": 0.34296675191815856
+    },
+    {
+      "topic": 7,
+      "top_words": [
+        "brexit",
+        "britain",
+        "minister",
+        "european",
+        "merkel",
+        "talks",
+        "government",
+        "party"
+      ],
+      "n": 3753,
+      "misleading_share": 0.08180122568611778
+    },
+    {
+      "topic": 8,
+      "top_words": [
+        "iran",
+        "syria",
+        "islamic",
+        "syrian",
+        "state",
+        "military",
+        "iraq",
+        "forces"
+      ],
+      "n": 5011,
+      "misleading_share": 0.138694871283177
+    },
+    {
+      "topic": 9,
+      "top_words": [
+        "china",
+        "chinese",
+        "taiwan",
+        "trade",
+        "beijing",
+        "united",
+        "states",
+        "sea"
+      ],
+      "n": 1370,
+      "misleading_share": 0.10510948905109489
+    }
+  ]
+}

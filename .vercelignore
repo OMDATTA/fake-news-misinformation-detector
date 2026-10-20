@@ -1,0 +1,8 @@
+/data
+/scripts
+/src
+/tests
+/reports
+/docs
+*.parquet
+*.npy

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Misinformation Detector — does this read like known misleading news?</title>
+  <meta name="description" content="Paste a news article and see how closely its language resembles known reliable or misleading examples, with highlighted influential phrases and a calibrated confidence score. A research demo, not a fact-checker." />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d0d0f'/%3E%3Crect x='6' y='14' width='20' height='4' fill='%23e5202e'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__row">
+      <a class="brand" href="#top" aria-label="Misinformation Detector, home">
+        <span class="brand__bar" aria-hidden="true"></span>
+        <span class="brand__name">Misinformation<span class="brand__thin">Detector</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#analyze">Analyze</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#data">Data</a>
+        <a href="#limits">Limits</a>
+        <a class="nav__gh" href="https://github.com/OMDATTA/fake-news-misinformation-detector" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="kicker">Research demo &middot; NLP &middot; Calibrated ML</p>
+          <h1 class="hero__title">Does this read like the <em>misleading</em> news we&rsquo;ve seen before?</h1>
+          <p class="hero__lede">Paste an article. A model trained on 38,092 labelled news stories estimates how closely its <strong>language and style</strong> resemble known reliable or misleading examples, shows which phrases drove that estimate, and reports a calibrated confidence. It does not check facts.</p>
+        </div>
+        <aside class="hero__stats" aria-label="Model at a glance">
+          <div class="stat"><span class="stat__num" data-stat="indist">99.0%</span><span class="stat__label">accuracy on held-out articles from the training sources</span></div>
+          <div class="stat stat--red"><span class="stat__num" data-stat="ood">73.4%</span><span class="stat__label">accuracy on articles from <em>unfamiliar</em> sources</span></div>
+          <p class="stat__note">That gap is the most important number on this page.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ANALYZER -->
+    <section class="analyzer" id="analyze" aria-labelledby="analyze-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="analyze-h">Analyze an article</h2>
+          <p class="muted">Runs entirely in your browser. Nothing you paste is uploaded.</p>
+        </div>
+
+        <div class="analyzer__grid">
+          <form class="input-card" id="form">
+            <label for="text" class="label">Headline and article text</label>
+            <textarea id="text" name="text" rows="14" placeholder="Paste a headline and the body of a news article (at least ~80 words works best)…" required></textarea>
+            <div class="input-card__meta">
+              <span id="wordcount" class="mono muted">0 words</span>
+              <div class="samples" role="group" aria-label="Load an illustrative sample">
+                <span class="muted">Try a sample:</span>
+                <button type="button" class="chip" data-sample="wire">Wire-style report</button>
+                <button type="button" class="chip" data-sample="sensational">Sensational post</button>
+                <button type="button" class="chip" data-sample="mixed">Opinion column</button>
+              </div>
+            </div>
+            <div class="input-card__actions">
+              <button type="submit" class="btn btn--primary" id="run" disabled>Loading model…</button>
+              <button type="button" class="btn btn--ghost" id="clear">Clear</button>
+            </div>
+            <p class="fine">Samples are short illustrative texts written for this demo, not real articles.</p>
+          </form>
+
+          <div class="result" id="result" aria-live="polite">
+            <div class="result__empty" id="empty">
+              <p class="result__empty-title">No article analysed yet</p>
+              <p class="muted">Paste text or load a sample, then press <strong>Analyze</strong>. You&rsquo;ll get a calibrated resemblance score, highlighted phrases and the style signals behind it.</p>
+            </div>
+
+            <div class="result__body" id="body" hidden>
+              <div class="verdict">
+                <p class="verdict__kicker">Resemblance estimate</p>
+                <p class="verdict__band" id="band">—</p>
+                <div class="scale" aria-hidden="true">
+                  <div class="scale__track">
+                    <div class="scale__zone"></div>
+                    <div class="scale__marker" id="marker"><span id="markerLabel">50%</span></div>
+                  </div>
+                  <div class="scale__ends"><span>Reliable-like</span><span>Inconclusive</span><span>Misleading-like</span></div>
+                </div>
+                <p class="verdict__prob">
+                  <span class="mono big" id="prob">—</span>
+                  <span>calibrated probability that this text belongs with the <strong>misleading</strong> training examples</span>
+                </p>
+                <p class="verdict__explain" id="explain"></p>
+                <ul class="warnings" id="warnings"></ul>
+              </div>
+
+              <div class="panel">
+                <div class="panel__head">
+                  <h3>Influential words in your text</h3>
+                  <div class="legend"><span class="sw sw--red"></span>pushes toward misleading <span class="sw sw--light"></span>pushes toward reliable</div>
+                </div>
+                <div class="highlight" id="highlight"></div>
+              </div>
+
+              <div class="split">
+                <div class="panel">
+                  <h3>Top phrases &rarr; misleading</h3>
+                  <ol class="bars" id="toMis"></ol>
+                </div>
+                <div class="panel">
+                  <h3>Top phrases &rarr; reliable</h3>
+                  <ol class="bars bars--light" id="toRel"></ol>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="panel__head">
+                  <h3>Style signals</h3>
+                  <p class="muted small">Compared with the average training article. Sorted by influence.</p>
+                </div>
+                <div class="table-scroll"><table class="ling" id="ling">
+                  <thead><tr><th scope="col">Feature</th><th scope="col" class="num">This text</th><th scope="col" class="num">Typical</th><th scope="col">Push</th></tr></thead>
+                  <tbody></tbody>
+                </table></div>
+              </div>
+
+              <p class="disclaimer"><strong>Not a fact-check.</strong> A high score means the writing <em>resembles</em> articles from sites that were flagged as unreliable in 2015&ndash;2018. Accurate reporting can be written in a sensational style, and false claims can be written in a sober one. Verify claims with primary sources and professional fact-checkers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section class="method" id="method" aria-labelledby="method-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="method-h">How the estimate is made</h2>
+          <p class="muted">A deliberately transparent model: every number it uses can be inspected.</p>
+        </div>
+        <ol class="pipeline">
+          <li><span class="pipeline__n">01</span><h3>Scrub publisher fingerprints</h3><p>Remove &ldquo;Reuters&rdquo;, datelines, image credits, embedded tweets, URLs, &ldquo;[VIDEO]&rdquo; tags and timestamps. On their own these markers predict the label with <strong data-fill="marker_acc">96%</strong> accuracy, so leaving them in would teach the model to recognise publishers, not language.</p></li>
+          <li><span class="pipeline__n">02</span><h3>TF-IDF n-grams</h3><p>25,000 word and two-word phrases, sublinear term frequency, L2-normalised.</p></li>
+          <li><span class="pipeline__n">03</span><h3>15 linguistic features</h3><p>Sentence length, ALL-CAPS share, exclamation and question rates, quotation and attribution density, sensational and hedging vocabulary, readability and more, all standardised.</p></li>
+          <li><span class="pipeline__n">04</span><h3>Class-weighted logistic regression</h3><p>Linear, so each phrase&rsquo;s push toward either class is exactly its weight &times; its TF-IDF value. That is what the highlights show.</p></li>
+          <li><span class="pipeline__n">05</span><h3>Platt calibration</h3><p>A sigmoid fitted on a separate calibration split, so &ldquo;80%&rdquo; means roughly 80 in 100 similar test articles were misleading.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results" id="results" aria-labelledby="results-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="results-h">Model comparison</h2>
+          <p class="muted">Held-out ISOT test set (<span data-fill="n_test">7,619</span> articles), publisher artifacts removed.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="cmp" id="cmp">
+            <thead><tr><th scope="col">Model</th><th scope="col">Family</th><th scope="col" class="num">Accuracy</th><th scope="col" class="num">Macro-F1</th><th scope="col" class="num">ROC-AUC</th><th scope="col" class="num">Brier</th><th scope="col" class="num">ECE</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="cards-2">
+          <article class="card">
+            <h3>Calibration</h3>
+            <p class="muted small">Reliability diagram on the test set. Points on the diagonal mean the stated probability matches the observed frequency.</p>
+            <div class="chart"><canvas id="chartCal" aria-label="Reliability diagram" role="img"></canvas></div>
+            <p class="small" id="calText"></p>
+          </article>
+          <article class="card card--alert">
+            <h3>Out-of-distribution reality check</h3>
+            <p class="muted small">Same model, scored on <span data-fill="ood_n">4,000</span> WELFake articles that never appear in the training corpus.</p>
+            <div class="ood">
+              <div><span class="ood__num" data-fill="acc_in">99.0%</span><span class="ood__lab">familiar sources</span></div>
+              <span class="ood__arrow" aria-hidden="true">&rarr;</span>
+              <div><span class="ood__num ood__num--red" data-fill="acc_ood">73.4%</span><span class="ood__lab">unfamiliar sources</span></div>
+            </div>
+            <div class="chart chart--sm"><canvas id="chartOod" aria-label="Out-of-distribution reliability diagram" role="img"></canvas></div>
+            <p class="small" id="oodText"></p>
+          </article>
+        </div>
+
+        <div class="cards-2">
+          <article class="card">
+            <h3>Transformer embeddings vs TF-IDF</h3>
+            <p class="muted small">All trained on the same 10,000-article subsample. Sentence embeddings: <span class="mono" data-fill="emb_model">all-MiniLM-L6-v2</span>.</p>
+            <div class="table-scroll"><table class="mini" id="emb"><thead><tr><th scope="col">Model</th><th scope="col" class="num">Acc (ISOT)</th><th scope="col" class="num">Acc (unfamiliar)</th><th scope="col" class="num">AUC (unfamiliar)</th></tr></thead><tbody></tbody></table></div>
+            <p class="small">Dense embeddings capture topic more than style here, and they do <strong>not</strong> generalise better. The lighter TF-IDF + linguistic model is what ships.</p>
+          </article>
+          <article class="card">
+            <h3>Class imbalance</h3>
+            <p class="muted small">Real feeds contain far less misinformation than ISOT&rsquo;s ~45%. Here train and test are resampled to <span data-fill="prev">10%</span> misleading.</p>
+            <div class="table-scroll"><table class="mini" id="imb"><thead><tr><th scope="col">Strategy</th><th scope="col" class="num">Precision</th><th scope="col" class="num">Recall</th><th scope="col" class="num">F1</th><th scope="col" class="num">PR-AUC</th></tr></thead><tbody></tbody></table></div>
+            <p class="small">Accuracy is misleading under imbalance; PR-AUC and recall on the minority class are reported instead. Class weighting trades a little precision for recall.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA -->
+    <section class="data" id="data" aria-labelledby="data-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="data-h">Source and topic analysis</h2>
+          <p class="muted">Where the training data comes from shapes what the model learns.</p>
+        </div>
+        <div class="cards-2">
+          <article class="card">
+            <h3>Publisher fingerprints</h3>
+            <p class="muted small">Share of articles containing each marker before scrubbing.</p>
+            <div class="chart chart--tall"><canvas id="chartSrc" aria-label="Source marker rates by class" role="img"></canvas></div>
+          </article>
+          <article class="card">
+            <h3>Topics (NMF, 10 components)</h3>
+            <p class="muted small">Share of misleading articles per discovered topic. The class mix is far from uniform, so a model can partly learn topic as a proxy.</p>
+            <div class="chart chart--tall"><canvas id="chartTopic" aria-label="Misleading share per topic" role="img"></canvas></div>
+          </article>
+        </div>
+        <article class="card">
+          <h3>Topic hold-out</h3>
+          <p class="muted small">Each topic is removed from training in turn and the model is tested on it. Accuracy stays high, which suggests the signal is stylistic rather than topical within this corpus, though style is itself publisher-specific. Note the axis starts at 90%.</p>
+          <div class="chart chart--hold"><canvas id="chartHold" aria-label="Accuracy with topic seen versus held out" role="img"></canvas></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIMITS -->
+    <section class="limits" id="limits" aria-labelledby="limits-h">
+      <div class="wrap limits__grid">
+        <div>
+          <h2 id="limits-h">What this tool is not</h2>
+          <p class="limits__lede">It is a <strong>style-resemblance model</strong>. It never sees the claims&rsquo; truth value, the outside world, or anything after 2018.</p>
+        </div>
+        <ul class="limits__list">
+          <li><strong>Labels are about sources, not claims.</strong> ISOT marks every article from flagged websites as &ldquo;fake&rdquo; and every Reuters article as &ldquo;true&rdquo;. The model learns that contrast.</li>
+          <li><strong>It is overconfident on unfamiliar writing.</strong> Calibration holds on the training distribution (ECE <span data-fill="ece_in">0.2%</span>) but not elsewhere (ECE <span data-fill="ece_ood">19%</span>).</li>
+          <li><strong>Narrow time and topic window.</strong> Mostly US politics and world news from 2015&ndash;2018.</li>
+          <li><strong>English only.</strong> Non-English text is mostly outside the vocabulary and triggers a warning.</li>
+          <li><strong>Easy to game.</strong> Rewriting a false story in wire-service style will lower its score.</li>
+          <li><strong>Use it to ask better questions.</strong> Who is quoted? Why so many superlatives? Where is the primary source? The score can prompt those questions; it cannot settle them.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <p>Built by <a href="https://github.com/OMDATTA" target="_blank" rel="noopener">Kunal Datta</a>. Trained on the <a href="https://onlineacademiccommunity.uvic.ca/isot/2022/11/27/fake-news-detection-datasets/" target="_blank" rel="noopener">ISOT Fake News Dataset</a>; out-of-distribution test on <a href="https://huggingface.co/datasets/davanstrien/WELFake" target="_blank" rel="noopener">WELFake</a>.</p>
+      <p class="muted">For education and research. Not a fact-checking service.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

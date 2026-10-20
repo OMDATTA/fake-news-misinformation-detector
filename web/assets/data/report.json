@@ -1,0 +1,1076 @@
+{
+ "data": {
+  "source": "https://huggingface.co/datasets/ErfanMoosaviMonazzah/fake-news-detection-dataset-English",
+  "original": "ISOT Fake News Dataset (University of Victoria)",
+  "rows_raw": 44267,
+  "rows_short_removed": 378,
+  "rows_duplicates_removed": 5798,
+  "rows_final": 38091,
+  "class_counts": {
+   "reliable": 20907,
+   "misleading": 17184
+  },
+  "split_counts": {
+   "train": 26663,
+   "test": 7619,
+   "cal": 3809
+  }
+ },
+ "source_markers": [
+  {
+   "marker": "Mentions 'Reuters'",
+   "reliable_pct": 22.834457358779357,
+   "misleading_pct": 1.2802607076350094
+  },
+  {
+   "marker": "Image credit ('Featured image', 'Photo by')",
+   "reliable_pct": 0.0,
+   "misleading_pct": 51.33263500931099
+  },
+  {
+   "marker": "Embedded tweet / handle",
+   "reliable_pct": 1.1001100110011002,
+   "misleading_pct": 27.42667597765363
+  },
+  {
+   "marker": "Contains URL",
+   "reliable_pct": 0.19610656717845698,
+   "misleading_pct": 14.466945996275605
+  },
+  {
+   "marker": "Curly quotes / apostrophes",
+   "reliable_pct": 50.791600899220356,
+   "misleading_pct": 52.804934823091244
+  },
+  {
+   "marker": "Title in ALL CAPS words (3+)",
+   "reliable_pct": 0.1578418711436361,
+   "misleading_pct": 39.44366852886406
+  },
+  {
+   "marker": "Title tag like [VIDEO] / (IMAGES)",
+   "reliable_pct": 0.0,
+   "misleading_pct": 34.26443202979516
+  }
+ ],
+ "marker_only_cv_accuracy": 0.9626,
+ "topics": [
+  {
+   "topic": 0,
+   "top_words": [
+    "people",
+    "obama",
+    "just",
+    "like",
+    "police",
+    "black",
+    "white",
+    "donald"
+   ],
+   "n": 8575,
+   "misleading_share": 0.928862973760933
+  },
+  {
+   "topic": 1,
+   "top_words": [
+    "korea",
+    "north",
+    "nuclear",
+    "korean",
+    "missile",
+    "south",
+    "sanctions",
+    "pyongyang"
+   ],
+   "n": 1186,
+   "misleading_share": 0.13069139966273188
+  },
+  {
+   "topic": 2,
+   "top_words": [
+    "clinton",
+    "hillary",
+    "sanders",
+    "campaign",
+    "email",
+    "emails",
+    "fbi",
+    "democratic"
+   ],
+   "n": 2820,
+   "misleading_share": 0.7326241134751773
+  },
+  {
+   "topic": 3,
+   "top_words": [
+    "tax",
+    "house",
+    "senate",
+    "republicans",
+    "obamacare",
+    "republican",
+    "healthcare",
+    "legislation"
+   ],
+   "n": 4219,
+   "misleading_share": 0.24626688788812515
+  },
+  {
+   "topic": 4,
+   "top_words": [
+    "russia",
+    "russian",
+    "putin",
+    "intelligence",
+    "comey",
+    "fbi",
+    "flynn",
+    "investigation"
+   ],
+   "n": 3520,
+   "misleading_share": 0.39289772727272726
+  },
+  {
+   "topic": 5,
+   "top_words": [
+    "cruz",
+    "republican",
+    "party",
+    "election",
+    "campaign",
+    "presidential",
+    "vote",
+    "voters"
+   ],
+   "n": 3727,
+   "misleading_share": 0.5605044271532064
+  },
+  {
+   "topic": 6,
+   "top_words": [
+    "court",
+    "supreme",
+    "judge",
+    "justice",
+    "law",
+    "order",
+    "ban",
+    "federal"
+   ],
+   "n": 3910,
+   "misleading_share": 0.34296675191815856
+  },
+  {
+   "topic": 7,
+   "top_words": [
+    "brexit",
+    "britain",
+    "minister",
+    "european",
+    "merkel",
+    "talks",
+    "government",
+    "party"
+   ],
+   "n": 3753,
+   "misleading_share": 0.08180122568611778
+  },
+  {
+   "topic": 8,
+   "top_words": [
+    "iran",
+    "syria",
+    "islamic",
+    "syrian",
+    "state",
+    "military",
+    "iraq",
+    "forces"
+   ],
+   "n": 5011,
+   "misleading_share": 0.138694871283177
+  },
+  {
+   "topic": 9,
+   "top_words": [
+    "china",
+    "chinese",
+    "taiwan",
+    "trade",
+    "beijing",
+    "united",
+    "states",
+    "sea"
+   ],
+   "n": 1370,
+   "misleading_share": 0.10510948905109489
+  }
+ ],
+ "year_counts": [
+  {
+   "year": 2015,
+   "reliable": 0,
+   "misleading": 1535
+  },
+  {
+   "year": 2016,
+   "reliable": 4691,
+   "misleading": 9078
+  },
+  {
+   "year": 2017,
+   "reliable": 16216,
+   "misleading": 6535
+  },
+  {
+   "year": 2018,
+   "reliable": 0,
+   "misleading": 35
+  }
+ ],
+ "models": [
+  {
+   "name": "Majority class",
+   "family": "Baseline",
+   "accuracy": 0.5489,
+   "balanced_accuracy": 0.5,
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0,
+   "macro_f1": 0.3544,
+   "roc_auc": 0.5,
+   "pr_auc": 0.4511,
+   "brier": 0.2476,
+   "ece": 0.0
+  },
+  {
+   "name": "Linguistic features + LogReg",
+   "family": "Linguistic",
+   "accuracy": 0.9283,
+   "balanced_accuracy": 0.9283,
+   "precision": 0.9143,
+   "recall": 0.9281,
+   "f1": 0.9212,
+   "macro_f1": 0.9277,
+   "roc_auc": 0.9773,
+   "pr_auc": 0.9691,
+   "brier": 0.0546,
+   "ece": 0.0164
+  },
+  {
+   "name": "Linguistic features + Gradient Boosting",
+   "family": "Linguistic",
+   "accuracy": 0.9529,
+   "balanced_accuracy": 0.9523,
+   "precision": 0.9487,
+   "recall": 0.9468,
+   "f1": 0.9477,
+   "macro_f1": 0.9524,
+   "roc_auc": 0.9904,
+   "pr_auc": 0.9887,
+   "brier": 0.0363,
+   "ece": 0.005
+  },
+  {
+   "name": "TF-IDF + Complement Naive Bayes",
+   "family": "TF-IDF",
+   "accuracy": 0.9497,
+   "balanced_accuracy": 0.9498,
+   "precision": 0.9385,
+   "recall": 0.9508,
+   "f1": 0.9446,
+   "macro_f1": 0.9493,
+   "roc_auc": 0.9885,
+   "pr_auc": 0.9857,
+   "brier": 0.0392,
+   "ece": 0.0181
+  },
+  {
+   "name": "TF-IDF + Logistic Regression",
+   "family": "TF-IDF",
+   "accuracy": 0.9862,
+   "balanced_accuracy": 0.986,
+   "precision": 0.9854,
+   "recall": 0.984,
+   "f1": 0.9847,
+   "macro_f1": 0.9861,
+   "roc_auc": 0.9985,
+   "pr_auc": 0.9982,
+   "brier": 0.0114,
+   "ece": 0.0078
+  },
+  {
+   "name": "TF-IDF + Linear SVM (Platt)",
+   "family": "TF-IDF",
+   "accuracy": 0.9888,
+   "balanced_accuracy": 0.9887,
+   "precision": 0.9881,
+   "recall": 0.9872,
+   "f1": 0.9876,
+   "macro_f1": 0.9887,
+   "roc_auc": 0.9989,
+   "pr_auc": 0.9986,
+   "brier": 0.009,
+   "ece": 0.0028
+  },
+  {
+   "name": "TF-IDF + linguistic + LogReg (deployed)",
+   "family": "Hybrid",
+   "accuracy": 0.9904,
+   "balanced_accuracy": 0.9903,
+   "precision": 0.9895,
+   "recall": 0.9892,
+   "f1": 0.9894,
+   "macro_f1": 0.9903,
+   "roc_auc": 0.9992,
+   "pr_auc": 0.9991,
+   "brier": 0.0072,
+   "ece": 0.0027
+  }
+ ],
+ "embeddings": {
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "n_train": 10000,
+  "in_dist": {
+   "MiniLM embeddings + LogReg": {
+    "accuracy": 0.9468,
+    "balanced_accuracy": 0.9463,
+    "precision": 0.9412,
+    "recall": 0.9409,
+    "f1": 0.9411,
+    "macro_f1": 0.9463,
+    "roc_auc": 0.9873,
+    "pr_auc": 0.9855,
+    "brier": 0.0417,
+    "ece": 0.0245
+   },
+   "TF-IDF + LogReg (same 10k)": {
+    "accuracy": 0.9839,
+    "balanced_accuracy": 0.9837,
+    "precision": 0.9822,
+    "recall": 0.982,
+    "f1": 0.9821,
+    "macro_f1": 0.9837,
+    "roc_auc": 0.9981,
+    "pr_auc": 0.9976,
+    "brier": 0.0152,
+    "ece": 0.029
+   },
+   "MiniLM + linguistic + LogReg": {
+    "accuracy": 0.9778,
+    "balanced_accuracy": 0.9777,
+    "precision": 0.9744,
+    "recall": 0.9764,
+    "f1": 0.9754,
+    "macro_f1": 0.9776,
+    "roc_auc": 0.9953,
+    "pr_auc": 0.9934,
+    "brier": 0.018,
+    "ece": 0.0111
+   }
+  },
+  "ood": {
+   "MiniLM embeddings + LogReg": {
+    "accuracy": 0.5623,
+    "balanced_accuracy": 0.5623,
+    "precision": 0.5519,
+    "recall": 0.662,
+    "f1": 0.602,
+    "macro_f1": 0.5579,
+    "roc_auc": 0.5927,
+    "pr_auc": 0.601,
+    "brier": 0.3377,
+    "ece": 0.2849
+   },
+   "TF-IDF + LogReg (same 10k)": {
+    "accuracy": 0.6205,
+    "balanced_accuracy": 0.6205,
+    "precision": 0.5759,
+    "recall": 0.9145,
+    "f1": 0.7067,
+    "macro_f1": 0.5846,
+    "roc_auc": 0.7222,
+    "pr_auc": 0.6913,
+    "brier": 0.2954,
+    "ece": 0.2698
+   },
+   "MiniLM + linguistic + LogReg": {
+    "accuracy": 0.6945,
+    "balanced_accuracy": 0.6945,
+    "precision": 0.7503,
+    "recall": 0.583,
+    "f1": 0.6562,
+    "macro_f1": 0.6907,
+    "roc_auc": 0.7492,
+    "pr_auc": 0.7494,
+    "brier": 0.2528,
+    "ece": 0.2152
+   }
+  }
+ },
+ "leakage": {
+  "raw": {
+   "accuracy": 0.9926,
+   "balanced_accuracy": 0.9925,
+   "precision": 0.993,
+   "recall": 0.9907,
+   "f1": 0.9918,
+   "macro_f1": 0.9926,
+   "roc_auc": 0.9995,
+   "pr_auc": 0.9994,
+   "brier": 0.0061,
+   "ece": 0.0074
+  },
+  "scrubbed": {
+   "accuracy": 0.9862,
+   "balanced_accuracy": 0.986,
+   "precision": 0.9854,
+   "recall": 0.984,
+   "f1": 0.9847,
+   "macro_f1": 0.9861,
+   "roc_auc": 0.9985,
+   "pr_auc": 0.9982,
+   "brier": 0.0114,
+   "ece": 0.0078
+  },
+  "raw_top_reliable_terms": [
+   "said",
+   "said on",
+   "reuters",
+   "on tuesday",
+   "on thursday",
+   "on wednesday",
+   "president donald",
+   "on friday",
+   "said in",
+   "on monday",
+   "he said",
+   "republican"
+  ],
+  "raw_top_misleading_terms": [
+   "via",
+   "video",
+   "read more",
+   "read",
+   "gop",
+   "the us",
+   "just",
+   "breaking",
+   "image",
+   "featured image",
+   "obama",
+   "this"
+  ]
+ },
+ "topic_holdout": [
+  {
+   "topic": 0,
+   "label": "people, obama, just, like",
+   "n_test": 1725,
+   "acc_seen": 0.9918840579710145,
+   "acc_held_out": 0.9907246376811594,
+   "auc_held_out": 0.9932024236384829,
+   "ece_held_out": 0.008099066333194743
+  },
+  {
+   "topic": 1,
+   "label": "korea, north, nuclear, korean",
+   "n_test": 246,
+   "acc_seen": 0.9796747967479674,
+   "acc_held_out": 0.9796747967479674,
+   "auc_held_out": 0.9975993998499626,
+   "ece_held_out": 0.019216380580045676
+  },
+  {
+   "topic": 2,
+   "label": "clinton, hillary, sanders, campaign",
+   "n_test": 576,
+   "acc_seen": 0.984375,
+   "acc_held_out": 0.9861111111111112,
+   "auc_held_out": 0.9976570258192652,
+   "ece_held_out": 0.014401281652083374
+  },
+  {
+   "topic": 3,
+   "label": "tax, house, senate, republicans",
+   "n_test": 852,
+   "acc_seen": 0.9882629107981221,
+   "acc_held_out": 0.9823943661971831,
+   "auc_held_out": 0.998275949129679,
+   "ece_held_out": 0.01589031359988044
+  },
+  {
+   "topic": 4,
+   "label": "russia, russian, putin, intelligence",
+   "n_test": 717,
+   "acc_seen": 0.99302649930265,
+   "acc_held_out": 0.9902370990237099,
+   "auc_held_out": 0.9991465738669318,
+   "ece_held_out": 0.011166029967631753
+  },
+  {
+   "topic": 5,
+   "label": "cruz, republican, party, election",
+   "n_test": 717,
+   "acc_seen": 0.9874476987447699,
+   "acc_held_out": 0.9916317991631799,
+   "auc_held_out": 0.9989308285682607,
+   "ece_held_out": 0.0098508086939217
+  },
+  {
+   "topic": 6,
+   "label": "court, supreme, judge, justice",
+   "n_test": 763,
+   "acc_seen": 0.9934469200524246,
+   "acc_held_out": 0.9895150720838795,
+   "auc_held_out": 0.9995134250453399,
+   "ece_held_out": 0.015765743647996457
+  },
+  {
+   "topic": 7,
+   "label": "brexit, britain, minister, european",
+   "n_test": 737,
+   "acc_seen": 0.9918588873812755,
+   "acc_held_out": 0.9837177747625508,
+   "auc_held_out": 0.9991448747655302,
+   "ece_held_out": 0.02602296267011803
+  },
+  {
+   "topic": 8,
+   "label": "iran, syria, islamic, syrian",
+   "n_test": 1006,
+   "acc_seen": 0.9920477137176938,
+   "acc_held_out": 0.9880715705765407,
+   "auc_held_out": 0.9981495772240339,
+   "ece_held_out": 0.016325862674337353
+  },
+  {
+   "topic": 9,
+   "label": "china, chinese, taiwan, trade",
+   "n_test": 280,
+   "acc_seen": 0.9928571428571429,
+   "acc_held_out": 0.9892857142857143,
+   "auc_held_out": 0.9989333333333333,
+   "ece_held_out": 0.010304081864175352
+  }
+ ],
+ "imbalance": {
+  "prevalence": 0.1,
+  "n_train": 16261,
+  "n_test": 4646,
+  "results": {
+   "Unweighted, threshold 0.5": {
+    "accuracy": 0.9892,
+    "balanced_accuracy": 0.9586,
+    "precision": 0.9705,
+    "recall": 0.9203,
+    "f1": 0.9447,
+    "macro_f1": 0.9694,
+    "roc_auc": 0.9989,
+    "pr_auc": 0.9904,
+    "brier": 0.0078,
+    "ece": 0.0046
+   },
+   "Class-weighted (balanced), threshold 0.5": {
+    "accuracy": 0.9899,
+    "balanced_accuracy": 0.9771,
+    "precision": 0.9389,
+    "recall": 0.9612,
+    "f1": 0.9499,
+    "macro_f1": 0.9722,
+    "roc_auc": 0.999,
+    "pr_auc": 0.9908,
+    "brier": 0.007,
+    "ece": 0.0055
+   },
+   "Unweighted, F1-tuned threshold (0.21)": {
+    "accuracy": 0.9895,
+    "balanced_accuracy": 0.9798,
+    "precision": 0.9296,
+    "recall": 0.9677,
+    "f1": 0.9483,
+    "macro_f1": 0.9712,
+    "roc_auc": 0.9989,
+    "pr_auc": 0.9904,
+    "brier": 0.0078,
+    "ece": 0.0046
+   }
+  }
+ },
+ "calibration": {
+  "a": 1.0487125896435587,
+  "b": -0.10359893131496142,
+  "uncalibrated": {
+   "accuracy": 0.9904,
+   "balanced_accuracy": 0.9903,
+   "precision": 0.9895,
+   "recall": 0.9892,
+   "f1": 0.9894,
+   "macro_f1": 0.9903,
+   "roc_auc": 0.9992,
+   "pr_auc": 0.9991,
+   "brier": 0.0072,
+   "ece": 0.0027
+  },
+  "platt": {
+   "accuracy": 0.9907,
+   "balanced_accuracy": 0.9905,
+   "precision": 0.9904,
+   "recall": 0.9889,
+   "f1": 0.9897,
+   "macro_f1": 0.9906,
+   "roc_auc": 0.9992,
+   "pr_auc": 0.9991,
+   "brier": 0.0073,
+   "ece": 0.0022
+  },
+  "isotonic": {
+   "accuracy": 0.9913,
+   "balanced_accuracy": 0.9913,
+   "precision": 0.9895,
+   "recall": 0.9913,
+   "f1": 0.9904,
+   "macro_f1": 0.9913,
+   "roc_auc": 0.9986,
+   "pr_auc": 0.998,
+   "brier": 0.0074,
+   "ece": 0.0034
+  },
+  "reliability": {
+   "uncalibrated": [
+    {
+     "bin": 0,
+     "mean_pred": 0.004068866834744319,
+     "frac_pos": 0.0029311187103077674,
+     "count": 4094
+    },
+    {
+     "bin": 1,
+     "mean_pred": 0.14167317838086238,
+     "frac_pos": 0.09302325581395349,
+     "count": 43
+    },
+    {
+     "bin": 2,
+     "mean_pred": 0.24888409644634474,
+     "frac_pos": 0.32,
+     "count": 25
+    },
+    {
+     "bin": 3,
+     "mean_pred": 0.34931781974280324,
+     "frac_pos": 0.5,
+     "count": 10
+    },
+    {
+     "bin": 4,
+     "mean_pred": 0.4485952887925686,
+     "frac_pos": 0.7272727272727273,
+     "count": 11
+    },
+    {
+     "bin": 5,
+     "mean_pred": 0.5584672318103403,
+     "frac_pos": 0.5,
+     "count": 18
+    },
+    {
+     "bin": 6,
+     "mean_pred": 0.636332952697814,
+     "frac_pos": 0.8,
+     "count": 20
+    },
+    {
+     "bin": 7,
+     "mean_pred": 0.7507574026109332,
+     "frac_pos": 0.7586206896551724,
+     "count": 29
+    },
+    {
+     "bin": 8,
+     "mean_pred": 0.8566253329044805,
+     "frac_pos": 0.9210526315789473,
+     "count": 38
+    },
+    {
+     "bin": 9,
+     "mean_pred": 0.996271291802811,
+     "frac_pos": 0.9960972680876614,
+     "count": 3331
+    }
+   ],
+   "platt": [
+    {
+     "bin": 0,
+     "mean_pred": 0.003377972643066472,
+     "frac_pos": 0.0031645569620253164,
+     "count": 4108
+    },
+    {
+     "bin": 1,
+     "mean_pred": 0.1454929199652697,
+     "frac_pos": 0.16216216216216217,
+     "count": 37
+    },
+    {
+     "bin": 2,
+     "mean_pred": 0.24255376317816008,
+     "frac_pos": 0.3157894736842105,
+     "count": 19
+    },
+    {
+     "bin": 3,
+     "mean_pred": 0.3440407356855327,
+     "frac_pos": 0.36363636363636365,
+     "count": 11
+    },
+    {
+     "bin": 4,
+     "mean_pred": 0.44709454298862195,
+     "frac_pos": 0.75,
+     "count": 12
+    },
+    {
+     "bin": 5,
+     "mean_pred": 0.5629491751806073,
+     "frac_pos": 0.6,
+     "count": 20
+    },
+    {
+     "bin": 6,
+     "mean_pred": 0.6443475361107406,
+     "frac_pos": 0.8888888888888888,
+     "count": 18
+    },
+    {
+     "bin": 7,
+     "mean_pred": 0.7494018381784666,
+     "frac_pos": 0.72,
+     "count": 25
+    },
+    {
+     "bin": 8,
+     "mean_pred": 0.8544960365675492,
+     "frac_pos": 0.9210526315789473,
+     "count": 38
+    },
+    {
+     "bin": 9,
+     "mean_pred": 0.9965288152800165,
+     "frac_pos": 0.9960972680876614,
+     "count": 3331
+    }
+   ]
+  }
+ },
+ "ood": {
+  "n": 4000,
+  "scores": {
+   "accuracy": 0.7335,
+   "balanced_accuracy": 0.7335,
+   "precision": 0.722,
+   "recall": 0.7595,
+   "f1": 0.7403,
+   "macro_f1": 0.7333,
+   "roc_auc": 0.7947,
+   "pr_auc": 0.7905,
+   "brier": 0.2194,
+   "ece": 0.1831
+  },
+  "reliability": [
+   {
+    "bin": 0,
+    "mean_pred": 0.020532900008448346,
+    "frac_pos": 0.21185185185185185,
+    "count": 1350
+   },
+   {
+    "bin": 1,
+    "mean_pred": 0.14271838405906082,
+    "frac_pos": 0.2946859903381642,
+    "count": 207
+   },
+   {
+    "bin": 2,
+    "mean_pred": 0.24317329058152343,
+    "frac_pos": 0.33587786259541985,
+    "count": 131
+   },
+   {
+    "bin": 3,
+    "mean_pred": 0.3483906460029846,
+    "frac_pos": 0.4537037037037037,
+    "count": 108
+   },
+   {
+    "bin": 4,
+    "mean_pred": 0.4509109724974993,
+    "frac_pos": 0.41,
+    "count": 100
+   },
+   {
+    "bin": 5,
+    "mean_pred": 0.5452248401688572,
+    "frac_pos": 0.4489795918367347,
+    "count": 98
+   },
+   {
+    "bin": 6,
+    "mean_pred": 0.6514307521879671,
+    "frac_pos": 0.5041322314049587,
+    "count": 121
+   },
+   {
+    "bin": 7,
+    "mean_pred": 0.7493789887413193,
+    "frac_pos": 0.5111111111111111,
+    "count": 135
+   },
+   {
+    "bin": 8,
+    "mean_pred": 0.8504403085123846,
+    "frac_pos": 0.5977653631284916,
+    "count": 179
+   },
+   {
+    "bin": 9,
+    "mean_pred": 0.9855307697951101,
+    "frac_pos": 0.7880330999363463,
+    "count": 1571
+   }
+  ],
+  "share_confident": 0.7302
+ },
+ "top_features": {
+  "misleading": [
+   {
+    "term": "obama",
+    "coef": 11.9
+   },
+   {
+    "term": "this",
+    "coef": 11.6
+   },
+   {
+    "term": "mr",
+    "coef": 10.4
+   },
+   {
+    "term": "watch",
+    "coef": 9.65
+   },
+   {
+    "term": "just",
+    "coef": 9.38
+   },
+   {
+    "term": "the us",
+    "coef": 8.09
+   },
+   {
+    "term": "president trump",
+    "coef": 7.98
+   },
+   {
+    "term": "hillary",
+    "coef": 7.93
+   },
+   {
+    "term": "us",
+    "coef": 7.69
+   },
+   {
+    "term": "gop",
+    "coef": 7.69
+   },
+   {
+    "term": "that",
+    "coef": 7.46
+   },
+   {
+    "term": "according to",
+    "coef": 7.44
+   },
+   {
+    "term": "according",
+    "coef": 7.42
+   },
+   {
+    "term": "america",
+    "coef": 7.39
+   },
+   {
+    "term": "american",
+    "coef": 7.19
+   },
+   {
+    "term": "president obama",
+    "coef": 6.94
+   },
+   {
+    "term": "these",
+    "coef": 6.45
+   },
+   {
+    "term": "is",
+    "coef": 6.3
+   },
+   {
+    "term": "reports",
+    "coef": 6.25
+   },
+   {
+    "term": "press",
+    "coef": 6.1
+   }
+  ],
+  "reliable": [
+   {
+    "term": "link",
+    "coef": -16.0
+   },
+   {
+    "term": "trump on",
+    "coef": -14.4
+   },
+   {
+    "term": "on twitter",
+    "coef": -12.1
+   },
+   {
+    "term": "source",
+    "coef": -10.1
+   },
+   {
+    "term": "president donald",
+    "coef": -10.0
+   },
+   {
+    "term": "said on",
+    "coef": -10.0
+   },
+   {
+    "term": "twitter",
+    "coef": -9.41
+   },
+   {
+    "term": "on wednesday",
+    "coef": -9.0
+   },
+   {
+    "term": "on thursday",
+    "coef": -8.96
+   },
+   {
+    "term": "on friday",
+    "coef": -8.63
+   },
+   {
+    "term": "on tuesday",
+    "coef": -8.17
+   },
+   {
+    "term": "on monday",
+    "coef": -7.54
+   },
+   {
+    "term": "said",
+    "coef": -7.35
+   },
+   {
+    "term": "its",
+    "coef": -6.7
+   },
+   {
+    "term": "eu",
+    "coef": -6.41
+   },
+   {
+    "term": "britain",
+    "coef": -5.86
+   },
+   {
+    "term": "minister",
+    "coef": -5.85
+   },
+   {
+    "term": "wednesday",
+    "coef": -5.83
+   },
+   {
+    "term": "friday",
+    "coef": -5.78
+   },
+   {
+    "term": "reported on",
+    "coef": -5.75
+   }
+  ],
+  "linguistic": [
+   {
+    "name": "Article length (log words)",
+    "coef": 0.409
+   },
+   {
+    "name": "Average word length",
+    "coef": 1.55
+   },
+   {
+    "name": "Vocabulary diversity",
+    "coef": -0.608
+   },
+   {
+    "name": "Average sentence length",
+    "coef": 1.29
+   },
+   {
+    "name": "Exclamation marks / 100 words",
+    "coef": 0.0952
+   },
+   {
+    "name": "Question marks / 100 words",
+    "coef": 2.26
+   },
+   {
+    "name": "ALL-CAPS word share",
+    "coef": 5.33
+   },
+   {
+    "name": "Quotation marks / 100 words",
+    "coef": -4.21
+   },
+   {
+    "name": "First-person pronouns / 100 words",
+    "coef": -0.0698
+   },
+   {
+    "name": "Second-person pronouns / 100 words",
+    "coef": 0.699
+   },
+   {
+    "name": "Sensational words / 100 words",
+    "coef": 2.1
+   },
+   {
+    "name": "Hedging words / 100 words",
+    "coef": 0.273
+   },
+   {
+    "name": "Attribution verbs / 100 words",
+    "coef": -2.65
+   },
+   {
+    "name": "Numeric token share",
+    "coef": 0.0474
+   },
+   {
+    "name": "Flesch reading ease",
+    "coef": 2.29
+   }
+  ]
+ },
+ "hparams": {
+  "C": 32.0,
+  "ling_weight": 0.5
+ }
+}

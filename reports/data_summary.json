@@ -1,0 +1,17 @@
+{
+  "source": "https://huggingface.co/datasets/ErfanMoosaviMonazzah/fake-news-detection-dataset-English",
+  "original": "ISOT Fake News Dataset (University of Victoria)",
+  "rows_raw": 44267,
+  "rows_short_removed": 378,
+  "rows_duplicates_removed": 5798,
+  "rows_final": 38091,
+  "class_counts": {
+    "reliable": 20907,
+    "misleading": 17184
+  },
+  "split_counts": {
+    "train": 26663,
+    "test": 7619,
+    "cal": 3809
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "misleading": [
+    {
+      "term": "obama",
+      "coef": 11.9
+    },
+    {
+      "term": "this",
+      "coef": 11.6
+    },
+    {
+      "term": "mr",
+      "coef": 10.4
+    },
+    {
+      "term": "watch",
+      "coef": 9.65
+    },
+    {
+      "term": "just",
+      "coef": 9.38
+    },
+    {
+      "term": "the us",
+      "coef": 8.09
+    },
+    {
+      "term": "president trump",
+      "coef": 7.98
+    },
+    {
+      "term": "hillary",
+      "coef": 7.93
+    },
+    {
+      "term": "us",
+      "coef": 7.69
+    },
+    {
+      "term": "gop",
+      "coef": 7.69
+    },
+    {
+      "term": "that",
+      "coef": 7.46
+    },
+    {
+      "term": "according to",
+      "coef": 7.44
+    },
+    {
+      "term": "according",
+      "coef": 7.42
+    },
+    {
+      "term": "america",
+      "coef": 7.39
+    },
+    {
+      "term": "american",
+      "coef": 7.19
+    },
+    {
+      "term": "president obama",
+      "coef": 6.94
+    },
+    {
+      "term": "these",
+      "coef": 6.45
+    },
+    {
+      "term": "is",
+      "coef": 6.3
+    },
+    {
+      "term": "reports",
+      "coef": 6.25
+    },
+    {
+      "term": "press",
+      "coef": 6.1
+    }
+  ],
+  "reliable": [
+    {
+      "term": "link",
+      "coef": -16.0
+    },
+    {
+      "term": "trump on",
+      "coef": -14.4
+    },
+    {
+      "term": "on twitter",
+      "coef": -12.1
+    },
+    {
+      "term": "source",
+      "coef": -10.1
+    },
+    {
+      "term": "president donald",
+      "coef": -10.0
+    },
+    {
+      "term": "said on",
+      "coef": -10.0
+    },
+    {
+      "term": "twitter",
+      "coef": -9.41
+    },
+    {
+      "term": "on wednesday",
+      "coef": -9.0
+    },
+    {
+      "term": "on thursday",
+      "coef": -8.96
+    },
+    {
+      "term": "on friday",
+      "coef": -8.63
+    },
+    {
+      "term": "on tuesday",
+      "coef": -8.17
+    },
+    {
+      "term": "on monday",
+      "coef": -7.54
+    },
+    {
+      "term": "said",
+      "coef": -7.35
+    },
+    {
+      "term": "its",
+      "coef": -6.7
+    },
+    {
+      "term": "eu",
+      "coef": -6.41
+    },
+    {
+      "term": "britain",
+      "coef": -5.86
+    },
+    {
+      "term": "minister",
+      "coef": -5.85
+    },
+    {
+      "term": "wednesday",
+      "coef": -5.83
+    },
+    {
+      "term": "friday",
+      "coef": -5.78
+    },
+    {
+      "term": "reported on",
+      "coef": -5.75
+    }
+  ],
+  "linguistic": [
+    {
+      "name": "Article length (log words)",
+      "coef": 0.409
+    },
+    {
+      "name": "Average word length",
+      "coef": 1.55
+    },
+    {
+      "name": "Vocabulary diversity",
+      "coef": -0.608
+    },
+    {
+      "name": "Average sentence length",
+      "coef": 1.29
+    },
+    {
+      "name": "Exclamation marks / 100 words",
+      "coef": 0.0952
+    },
+    {
+      "name": "Question marks / 100 words",
+      "coef": 2.26
+    },
+    {
+      "name": "ALL-CAPS word share",
+      "coef": 5.33
+    },
+    {
+      "name": "Quotation marks / 100 words",
+      "coef": -4.21
+    },
+    {
+      "name": "First-person pronouns / 100 words",
+      "coef": -0.0698
+    },
+    {
+      "name": "Second-person pronouns / 100 words",
+      "coef": 0.699
+    },
+    {
+      "name": "Sensational words / 100 words",
+      "coef": 2.1
+    },
+    {
+      "name": "Hedging words / 100 words",
+      "coef": 0.273
+    },
+    {
+      "name": "Attribution verbs / 100 words",
+      "coef": -2.65
+    },
+    {
+      "name": "Numeric token share",
+      "coef": 0.0474
+    },
+    {
+      "name": "Flesch reading ease",
+      "coef": 2.29
+    }
+  ]
+}
